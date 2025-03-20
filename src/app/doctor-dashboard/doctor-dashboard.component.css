@@ -1,0 +1,14 @@
+.dashboard-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #e3f2fd;
+  }
+  
+  .dashboard-card {
+    padding: 20px;
+    text-align: center;
+    width: 400px;
+  }
+  

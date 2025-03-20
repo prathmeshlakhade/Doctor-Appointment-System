@@ -23,21 +23,36 @@ export class LoginComponent {
     });
   }
 
+  // onSubmit() {
+  //   if (this.loginForm.valid) {
+  //     this.authService.login(this.loginForm.value).subscribe({
+  //       next: (response) => {
+  //         console.log('Login Successful:', response);
+  //         localStorage.setItem('token', response.token); // Store token if needed
+  //         this.router.navigate(['/dashboard']); // Navigate to dashboard
+  //       },
+  //       error: (err) => {
+  //         console.error('Login failed:', err);
+  //         this.errorMessage = 'Invalid email or password. Please try again.';
+  //       }
+  //     });
+  //   } else {
+  //     console.log('Invalid Form');
+  //   }
+  // }
+
   onSubmit() {
     if (this.loginForm.valid) {
       this.authService.login(this.loginForm.value).subscribe({
         next: (response) => {
           console.log('Login Successful:', response);
-          localStorage.setItem('token', response.token); // Store token if needed
-          this.router.navigate(['/dashboard']); // Navigate to dashboard
+          this.router.navigate(['/']); // 🔹 Redirect to HomeComponent after login
         },
         error: (err) => {
           console.error('Login failed:', err);
-          this.errorMessage = 'Invalid email or password. Please try again.';
+          this.errorMessage = 'Invalid email or password.';
         }
       });
-    } else {
-      console.log('Invalid Form');
     }
   }
 }
